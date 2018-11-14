@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Drum Kit</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="keys">
+      <div data-key="65" class="key">
+        <img
+          src="https://mbtskoudsalg.com/images/clap-emoji-png-3.png"
+          alt="A"
+        />
+        <br />
+        <span class="sound">clap</span>
+      </div>
+      <div data-key="83" class="key">
+        <img
+          src="http://www.long-mcquade.com/files/23070/lg_sabian13a.png"
+          alt="S"
+        />
+        <br />
+        <span class="sound">hihat</span>
+      </div>
+      <div data-key="68" class="key">
+        <img
+          src="http://www.gretschdrums.com/sites/default/files/drums/renown/kibo/add-ons/RN2-1822B-PB.png"
+          alt="D"
+        />
+        <br />
+        <span class="sound">kick</span>
+      </div>
+      <div data-key="70" class="key">
+        <img
+          src="https://2f9nwjerubq3js2g22m30fjx-wpengine.netdna-ssl.com/wp-content/uploads/2014/08/11402xl-14-inch-hhx-x-celerator-hats_full.png"
+          alt="F"
+        />
+        <br />
+        <span class="sound">openhat</span>
+      </div>
+      <div data-key="71" class="key">
+        <img
+          src="https://mbtskoudsalg.com/images/boom-transparent-clipart-5.png"
+          alt="G"
+        />
+        <br />
+        <span class="sound">boom</span>
+      </div>
+      <div data-key="72" class="key">
+        <img
+          src="https://www.columbuspercussion.com/store/media/catalog/product/cache/1/image/1050x/040ec09b1e35df139433887a97daa66f/2/2/22_crescent_hammertone_ride_n_4.png"
+          alt="H"
+        />
+        <br />
+        <span class="sound">ride</span>
+      </div>
+      <div data-key="74" class="key">
+        <img
+          src="http://www.stickpng.com/assets/images/580b585b2edbce24c47b2896.png"
+          alt="J"
+        />
+        <br />
+        <span class="sound">snare</span>
+      </div>
+      <div data-key="75" class="key">
+        <img
+          src="https://techflourish.com/images/clipart-tom-and-jerry-5.png"
+          alt="K"
+        />
+        <br />
+        <span class="sound">tom</span>
+      </div>
+      <div data-key="76" class="key">
+        <img
+          src="https://cdn.shopify.com/s/files/1/1061/1924/files/Thinking_Face_Emoji.png?9898922749706957214"
+          alt="L"
+        />
+        <br />
+        <span class="sound">tink</span>
+      </div>
+    </div>
+
+    <audio data-key="65" src="assets/sounds/clap.wav"></audio>
+    <audio data-key="83" src="assets/sounds/hihat.wav"></audio>
+    <audio data-key="68" src="assets/sounds/kick.wav"></audio>
+    <audio data-key="70" src="assets/sounds/openhat.wav"></audio>
+    <audio data-key="71" src="assets/sounds/boom.wav"></audio>
+    <audio data-key="72" src="assets/sounds/ride.wav"></audio>
+    <audio data-key="74" src="assets/sounds/snare.wav"></audio>
+    <audio data-key="75" src="assets/sounds/tom.wav"></audio>
+    <audio data-key="76" src="assets/sounds/tink.wav"></audio>
+
+    <script>
+      let alt = false;
+      // get all div keys
+      const keys = document.querySelectorAll('.key');
+
+      // add listener for keydown - toggle the audio when the button has been clicked
+      window.addEventListener('keydown', e => {
+        // get the corresponding audio element
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+
+        // get the corresponding key element
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+        // only if both exist - play the audio and toggle the animation
+        if (audio && key) {
+          audio.volume = 0.25;
+          audio.currentTime = 0;
+          audio.play();
+          key.classList.add(alt ? 'playing-alt' : 'playing');
+          alt = !alt;
+        }
+      });
+
+      // add listeners to all of the keys for ending the animation
+      for (let key of keys) {
+        key.addEventListener('transitionend', e => {
+          key.classList.remove(alt ? 'playing-alt' : 'playing');
+          alt = !alt;
+        });
+      }
+    </script>
+  </body>
+</html>
