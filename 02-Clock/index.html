@@ -36,6 +36,7 @@
         height: 30rem;
         border: 20px solid white;
         border-radius: 50%;
+        transform: rotate(90deg);
         margin: 50px auto;
         position: relative;
         padding: 2rem;
@@ -54,7 +55,6 @@
 
       .hand {
         transform-origin: 100%;
-        transform: rotate(90deg);
         width: 50%;
         height: 6px;
         background: black;
@@ -88,9 +88,11 @@
         let minutes = time.getMinutes();
         let hours = time.getHours();
 
-        let secDeg = seconds * 6 + 90;
-        let minDeg = minutes * 6 + 90;
-        let hourDeg = (hours > 12 ? hours - 12 : hours) * 30 + 90;
+        let secDeg = seconds * 6;
+        let minDeg = minutes * 6;
+        let hourDeg = (hours > 12 ? hours - 12 : hours) * 30;
+
+        console.log(secDeg, minDeg, hourDeg);
 
         secondsHand.style.transform = `rotate(${secDeg}deg)`;
         minutesHand.style.transform = `rotate(${minDeg}deg)`;
