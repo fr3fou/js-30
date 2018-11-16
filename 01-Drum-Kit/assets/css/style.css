@@ -5,8 +5,12 @@
 
 html {
     font-size: 10px;
-    background: url(https://www.a38.hu/storage/app/uploads/public/5ac/f7e/0b4/thumb_90076_0_1080_0_0_auto.jpg) bottom center;
+    background: white;
     background-size: cover;
+    background: white;
+    font-family: 'helvetica neue';
+    text-align: center;
+    font-size: 10px;
 }
 
 body,
@@ -16,10 +20,28 @@ html {
     font-family: sans-serif;
 }
 
-.keys {
+body {
+    margin: 0;
+    font-size: 2rem;
+    flex-wrap: wrap;
     display: flex;
     flex: 1;
     min-height: 100vh;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Avenir';
+    font-size: 2em !important;
+}
+
+.wrapper {
+    flex: 0 0 100%;
+    text-align: center;
+}
+
+.keys {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -35,8 +57,8 @@ html {
     height: 8rem;
     text-align: center;
     color: white;
-    background: rgba(0, 0, 0, 0.4);
-    text-shadow: 0 0 .5rem black;
+    background: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 .2rem black;
 }
 
 .playing {
