@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fonts/Avenir-Medium.ttf');
+}
+
+h1 {
+  font-family: 'Avenir';
+  font-size: 2rem;
+}
+
+:root {
+  --base: #a8ddaf;
+  --spacing: 10px;
+  --blur: 2px;
+}
+
+img {
+  padding: var(--spacing);
+  width: 50%;
+  height: auto;
+  background: var(--base);
+  filter: blur(var(--blur));
+}
+
+.hl {
+  color: var(--base);
+}
+
+/*
+  misc styles, nothing to do with CSS variables
+*/
+
+body {
+  text-align: center;
+  background: white;
+  color: rgb(0, 0, 0);
+  font-family: 'Avenir', sans-serif;
+  font-weight: 75;
+  font-size: 2rem;
+}
+
+.wrapper {
+  margin-top: 5%;
+}
+
+.controls {
+  margin-bottom: 50px;
+}
+
+input {
+  width: 100px;
+}
