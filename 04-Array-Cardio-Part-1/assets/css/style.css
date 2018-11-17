@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/Avenir-Medium.ttf');
+}
+
+h1 {
+    font-family: 'Avenir';
+    font-size: 2rem;
+}
+
+body {
+    text-align: center;
+}
